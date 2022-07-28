@@ -158,9 +158,9 @@ def annotate(image, target, classes, display_boxes=True, display_classes=True, c
             filtered = False
             for p in points:
                 if p[2] != constants.KP_FILTERED:
-                    cv2.circle(image, (p[0], p[1]), int(image_dim/100), color=color, thickness=-thickness)
+                    cv2.circle(image, (np.float32(p[0]), np.float32(p[1])), int(image_dim/100), color=color, thickness=-thickness)
                 else:
-                    cv2.circle(image, (p[0], p[1]), int(image_dim/100), color=(128/255, 128/255, 128/255),
+                    cv2.circle(image, (np.float32(p[0]), np.float32(p[1])), int(image_dim/100), color=(128/255, 128/255, 128/255)
                                thickness=-thickness)
                     filtered = True
             if display_classes:
